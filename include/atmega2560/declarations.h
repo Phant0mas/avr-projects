@@ -1,7 +1,7 @@
 /*
- * led blink
+ * Declarations to make my life easier.
  *
- * Copyright (C) 2014 Manolis Ragkousis
+ * Copyright (C) 2015 Manolis Ragkousis
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -10,19 +10,11 @@
  *
  */
 
-#include <atmega2560/declarations.h>
-#include <avr/io.h>
-#include <util/delay.h>
+#ifndef _DECLARATIONS_H_
+#define _DECLARATIONS_H_
 
-int
-main (void)
-{
-  DDRB |= _BV(DDB0); 
-    
-  while(1) 
-    {
-      PORTB ^= _BV(PB0);
-      _delay_ms(500);
+#define F_CPU 16000000UL
 
-    }
-}
+
+
+#endif /* _DECLARATIONS_H_ */

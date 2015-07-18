@@ -4,6 +4,7 @@ OBJCOPY = avr-objcopy
 MCU_TARGET = atmega2560
 
 CFLAGS = -mmcu=$(MCU_TARGET) -Wall -Os
+C_INCLUDE_PATH = ../../include/
 TARGET = blink
 
 all: $(TARGET).hex $(TARGET).elf
@@ -12,7 +13,7 @@ all: $(TARGET).hex $(TARGET).elf
 	$(OBJCOPY) -j .text -j .data -O ihex $< $@
 
 %.elf: %.c
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $< -o $@ -I $(C_INCLUDE_PATH)
 
 clean:
 	rm -rf *o *elf *hex $(TARGET)
